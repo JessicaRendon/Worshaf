@@ -7,24 +7,25 @@ package javajr;
 
 /**
  *
- * @author Labing I5
+ * @author Labin
  */
-public class Vacio extends Casilla {
-    
-    public Vacio(){
-        this.setCasilla("");
-    }
+public class ArmaDistancia extends Arma{
+      public ArmaDistancia(){
+      this.setCasilla(" ");
+  }
+  
     @Override
     public void setCasilla(String a) {
-       super.valorImpresion=" "; 
+       super.valorImpresion="*"; 
     }
 
     @Override
     public String getCasilla() {
      return super.valorImpresion;   
     }
-         @Override
+    @Override
     public boolean isVacio() {
-     return true;
+     return false;
     }
+    
 }

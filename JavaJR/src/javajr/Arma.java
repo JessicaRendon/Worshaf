@@ -9,23 +9,12 @@ package javajr;
  *
  * @author Labing I5
  */
-public class Arma extends Casilla {
+public abstract class Arma extends Casilla {
       
-    public Arma(){
-      this.setCasilla(" ");
-    }
-    @Override
-    public void setCasilla(String a) {
-       super.valorImpresion="*"; 
-    }
-
-    @Override
-    public String getCasilla() {
-     return super.valorImpresion;   
-    }
-     @Override
-    public boolean isVacio() {
-     return false;
-    }
+   public abstract void setCasilla(String a);
+    
+   public abstract String getCasilla();  
+    
+   public abstract boolean isVacio();
     
 }

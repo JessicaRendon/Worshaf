@@ -11,10 +11,14 @@ package javajr;
  */
 public class Jugador extends Casilla {
     
-    public Jugador(int a){
+    public Jugador(int a,int p){
+        if(p==2){
+        this.setCasilla("W");
+        }else{
         this.setCasilla(a+"");
+        }
     }
-    
+ 
     @Override
     public void setCasilla(String a) {
        super.valorImpresion=a; 
