@@ -40,13 +40,13 @@ public class JavaJR{
         System.out.println("");
         do{
         m=s.nextLine();
-        System.out.println("que jugador desea mover?");
+        System.out.println("Que jugador desea mover?");
         m=s.nextLine();
-        System.out.println("en que direccion? \n    W  \n A     D \n    S");
+        System.out.println("En que direccion? \n    W  \n A     D \n    S");
         d=s.nextLine();
         mapa.mover(m, d);
         mapa.imprimir();
-        System.out.println("desea mover otro jugador? \n 1 si \n 0 no");
+        System.out.println("Desea mover otro jugador? \n 1 Si \n 0 No");
         cont=s.nextInt();
         }while(cont!=0);
     }

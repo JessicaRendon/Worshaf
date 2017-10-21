@@ -150,7 +150,7 @@ public class Mapa{
                     if(mapa[i][j].jugador.valor.compareTo(jug)==0){ 
                         switch(dir){
                             case "W":
-                                if(mapa[i-1][j].getCasilla().compareTo("x")!=0 && mapa[i][j].jugador==null){
+                                if(mapa[i-1][j].getCasilla().compareTo("x")!=0&&mapa[i-1][j].jugador.isVacio()){
                                     mapa[i-1][j].jugador.valor=mapa[i][j].jugador.valor;
                                     mapa[i-1][j].jugador.grupo=mapa[i][j].jugador.grupo;
                                     mapa[i][j].jugador=null;
@@ -159,7 +159,7 @@ public class Mapa{
                                 }
                             break;
                             case "A":
-                                if(mapa[i][j-1].getCasilla().compareTo("x")!=0){
+                                if(mapa[i][j-1].getCasilla().compareTo("x")!=0&&mapa[i][j-1].jugador.isVacio()){
                                     mapa[i][j-1].jugador.valor=mapa[i][j].jugador.valor;
                                      mapa[i][j-1].jugador.grupo=mapa[i][j].jugador.grupo;
                                     mapa[i][j].jugador=null;
@@ -168,7 +168,7 @@ public class Mapa{
                                 }
                             break;
                             case "D":
-                                if(mapa[i][j+1].getCasilla().compareTo("x")!=0){
+                                if(mapa[i][j+1].getCasilla().compareTo("x")!=0&&mapa[i][j+1].jugador.isVacio()){
                                     mapa[i][j+1].jugador.valor=mapa[i][j].jugador.valor;
                                      mapa[i][j+1].jugador.grupo=mapa[i][j].jugador.grupo;
                                     mapa[i][j].jugador=null;
@@ -178,7 +178,7 @@ public class Mapa{
                                 }
                             break;
                             case "S":
-                                 if(mapa[i+1][j].getCasilla().compareTo("x")!=0){
+                                 if(mapa[i+1][j].getCasilla().compareTo("x")!=0&&mapa[i+1][j].jugador.isVacio()){
                                     mapa[i+1][j].jugador.valor=mapa[i][j].jugador.valor;
                                     mapa[i+1][j].jugador.grupo=mapa[i][j].jugador.grupo;
                                     mapa[i][j].jugador=null;
