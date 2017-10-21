@@ -39,26 +39,26 @@ public class Mapa{
                mapa[i][B+1]=new Borde();
                 
              }
+    
         int a=0;
-
-        while(a<Jugadores)
-        {
+        while(a<Jugadores){
             if(vacios()>0){
-            if(a<9){     
-            int i=randomcito.nextInt(A+1);
-            int j=randomcito.nextInt(B+1);          
-            int p=randomcito.nextInt(2+1);
-            if (mapa [i][j].isVacio()){
-                 mapa[i][j] = new Jugador (a+1,p);
-                 a++;
-            }
+                if(a<9){     
+                    int i=randomcito.nextInt(A+1);
+                    int j=randomcito.nextInt(B+1);          
+                    int p=randomcito.nextInt(2);
+                    if (mapa [i][j].isVacio()){
+                         mapa[i][j].jugador = new Jugador (a+1,p);
+                         a++;
+                    }
+                }else{
+                    break;
                 }
-        
-        }else{
+            }else{
                 break;
             }
         
-            }
+        }
         
          a=0;
 
@@ -123,7 +123,11 @@ public class Mapa{
    public void imprimir(){
         for (int i=0; i<a+2;i++){
              for (int j=0; j<b+2;j++){
-                 System.out.print(mapa[i][j].getCasilla()+" ");
+                 if(mapa[i][j].jugador!=null&&mapa[i][j].jugador.valor!=null){
+                     System.out.print(mapa[i][j].jugador.getJugador()+" ");
+                 }else{
+                     System.out.print(mapa[i][j].getCasilla()+" ");
+                 }
              }
              System.out.println();
         }
@@ -132,13 +136,63 @@ public class Mapa{
        int v=0;
         for (int i=0; i<a+2;i++){
              for (int j=0; j<b+2;j++){
-                 if(mapa[i][j].isVacio()){
+                 if(mapa[i][j].isVacio()&&mapa[i][j].jugador.isVacio()){
                      v++;
                  }
              }
         }
         return v;
-}
+    }
+   public void mover(String jug,String dir){
+       for (int i=0; i<a+2;i++){
+             for (int j=0; j<b+2;j++){
+                if(mapa[i][j].jugador!=null&&mapa[i][j].jugador.valor!=null){
+                    if(mapa[i][j].jugador.valor.compareTo(jug)==0){ 
+                        switch(dir){
+                            case "W":
+                                if(mapa[i-1][j].getCasilla().compareTo("x")!=0 && mapa[i][j].jugador==null){
+                                    mapa[i-1][j].jugador.valor=mapa[i][j].jugador.valor;
+                                    mapa[i-1][j].jugador.grupo=mapa[i][j].jugador.grupo;
+                                    mapa[i][j].jugador=null;
+                                }else{
+                                    System.out.println("No se puede salir del mapa o mover sobre otro jugador");
+                                }
+                            break;
+                            case "A":
+                                if(mapa[i][j-1].getCasilla().compareTo("x")!=0){
+                                    mapa[i][j-1].jugador.valor=mapa[i][j].jugador.valor;
+                                     mapa[i][j-1].jugador.grupo=mapa[i][j].jugador.grupo;
+                                    mapa[i][j].jugador=null;
+                                }else{
+                                    System.out.println("No se puede salir del mapa o mover sobre otro jugador");
+                                }
+                            break;
+                            case "D":
+                                if(mapa[i][j+1].getCasilla().compareTo("x")!=0){
+                                    mapa[i][j+1].jugador.valor=mapa[i][j].jugador.valor;
+                                     mapa[i][j+1].jugador.grupo=mapa[i][j].jugador.grupo;
+                                    mapa[i][j].jugador=null;
+                                    j++;
+                                }else{
+                                    System.out.println("No se puede salir del mapa o mover sobre otro jugador");
+                                }
+                            break;
+                            case "S":
+                                 if(mapa[i+1][j].getCasilla().compareTo("x")!=0){
+                                    mapa[i+1][j].jugador.valor=mapa[i][j].jugador.valor;
+                                    mapa[i+1][j].jugador.grupo=mapa[i][j].jugador.grupo;
+                                    mapa[i][j].jugador=null;
+                                    i++;
+                                 }else{
+                                    System.out.println("No se puede salir del mapa o mover sobre otro jugador");
+                                }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }      
 }
 
 

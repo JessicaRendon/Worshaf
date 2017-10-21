@@ -11,7 +11,7 @@ package javajr;
  */
 public abstract class Casilla {
     public String valorImpresion;
-    
+    public Jugador jugador=new Jugador();
     public abstract void setCasilla(String a);
  
     public abstract String getCasilla();

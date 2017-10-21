@@ -18,8 +18,9 @@ public class JavaJR{
      */
     public static void main(String[] args) {
     
-        Scanner s=new Scanner (System.in);
-       int A,B,ad,ac,c,j,r;
+        Scanner s = new Scanner (System.in);
+       int A,B,ad,ac,c,j,r,cont;
+       String m,d;
         System.out.println("Digite primera area");
         A=s.nextInt();
         System.out.println("Digite segunda area");
@@ -36,6 +37,18 @@ public class JavaJR{
         r=s.nextInt();
        Mapa mapa=new Mapa(A,B,ad,ac,c,j,r);
        mapa.imprimir();
+        System.out.println("");
+        do{
+        m=s.nextLine();
+        System.out.println("que jugador desea mover?");
+        m=s.nextLine();
+        System.out.println("en que direccion? \n    W  \n A     D \n    S");
+        d=s.nextLine();
+        mapa.mover(m, d);
+        mapa.imprimir();
+        System.out.println("desea mover otro jugador? \n 1 si \n 0 no");
+        cont=s.nextInt();
+        }while(cont!=0);
     }
    
 }

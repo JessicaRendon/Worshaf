@@ -9,27 +9,32 @@ package javajr;
  *
  * @author Labing I5
  */
-public class Jugador extends Casilla {
+public class Jugador {
+    public String valor;
+    public int grupo;
     
-    public Jugador(int a,int p){
-        if(p==2){
-        this.setCasilla("W");
-        }else{
-        this.setCasilla(a+"");
-        }
-    }
- 
-    @Override
-    public void setCasilla(String a) {
-       super.valorImpresion=a; 
+    public Jugador(int a,int p){ 
+        this.setJugador(a+"",p); 
     }
 
-    @Override
-    public String getCasilla() {
-     return super.valorImpresion;   
+    Jugador() {
     }
-         @Override
+ 
+    public void setJugador(String a,int p) {
+       valor=a; 
+       grupo=p;
+    }
+
+
+    public String getJugador() {
+     return this.valor;   
+    }
+    
     public boolean isVacio() {
-     return false;
-    }
+        if(this.valor!=null){
+            return false;
+        }else{
+            return true;
+        }
+    }       
 }

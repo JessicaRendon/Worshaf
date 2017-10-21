@@ -25,6 +25,11 @@ public class Vacio extends Casilla {
     }
          @Override
     public boolean isVacio() {
-     return true;
+        if(super.jugador.isVacio()){
+             return true;
+        }else{
+            return false;
+        }
+        
     }
 }
